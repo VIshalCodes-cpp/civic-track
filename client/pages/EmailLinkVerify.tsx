@@ -16,7 +16,6 @@ export default function EmailLinkVerify() {
 
   useEffect(() => {
     const verifyLink = async () => {
-      const auth = getAuth();
       const url = window.location.href;
 
       if (!isSignInWithEmailLink(auth, url)) {

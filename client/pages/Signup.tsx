@@ -68,7 +68,6 @@ export default function Signup() {
     setLoading(true);
     try {
       // Email signup - send Firebase email link
-      const auth = getAuth();
       const actionCodeSettings = {
         url: `${window.location.origin}/complete-signup?email=${encodeURIComponent(formData.email)}&name=${encodeURIComponent(formData.name)}&role=${formData.role}&department=${formData.department || ''}`,
         handleCodeInApp: true,

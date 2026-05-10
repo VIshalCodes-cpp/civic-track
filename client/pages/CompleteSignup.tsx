@@ -28,8 +28,6 @@ export default function CompleteSignup() {
       setLoading(true);
       
       try {
-        const auth = getAuth();
-        
         // Check if the link is a valid email sign-in link
         if (isSignInWithEmailLink(auth, window.location.href)) {
           // Get the stored signup data
