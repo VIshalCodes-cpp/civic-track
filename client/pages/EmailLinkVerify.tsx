@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth';
+import { isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth';
+import { auth } from '../firebase';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { useComplaints } from '@/context/ComplaintContext';

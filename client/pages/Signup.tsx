@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import { AlertCircle, Mail, Lock, User, Eye, EyeOff, CheckCircle, ArrowRight, Building2 } from 'lucide-react';
-import { getAuth, sendSignInLinkToEmail } from 'firebase/auth';
+import { sendSignInLinkToEmail } from 'firebase/auth';
+import { auth } from '../firebase';
 type SignupStep = 'details' | 'link-sent' | 'success';
 
 export default function Signup() {

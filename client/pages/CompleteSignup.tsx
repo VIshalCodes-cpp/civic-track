@@ -3,7 +3,8 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { AlertCircle, Mail, CheckCircle } from 'lucide-react';
-import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth';
+import { isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth';
+import { auth } from '../firebase';
 
 export default function CompleteSignup() {
   const navigate = useNavigate();
