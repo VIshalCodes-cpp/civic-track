@@ -11,7 +11,7 @@ import {
   handleLoginWithOTP,
   handleGetOTPForTesting,
   handleGetAllUsers,
-} from "../api/routes/auth";
+} from "./routes/auth";
 import {
   handleSubmitComplaint,
   handleGetComplaints,
@@ -25,8 +25,8 @@ import {
   handleCreateTestComplaint,
   handleAutoFix,
   handleEmergencyFix,
-} from "../api/routes/complaints";
-import { handleChatbot } from "../api/routes/chatbot";
+} from "./routes/complaints";
+import { handleChatbot } from "./routes/chatbot";
 import { handleImageUpload } from "./routes/upload";
 console.log("SID:", process.env.TWILIO_ACCOUNT_SID);
 console.log("TOKEN:", process.env.TWILIO_AUTH_TOKEN);
