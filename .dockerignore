@@ -2,7 +2,6 @@ node_modules
 dist
 .git
 .netlify
-api
 *.log
 .env
 pnpm-store
