@@ -86,19 +86,28 @@ export const ComplaintProvider: React.FC<{ children: ReactNode }> = ({ children 
           const data = await response.json();
           console.log('Raw complaints data:', data);
           // Handle different response formats
-          const complaintsData = Array.isArray(data) ? data : (data.complaints || data);
+          let complaintsData = Array.isArray(data) ? data : (data.complaints || data);
+          
+          // Ensure complaintsData is an array
+          if (!Array.isArray(complaintsData)) {
+            complaintsData = [];
+          }
+          
           console.log('Raw complaints data:', complaintsData);
 
           // Normalize complaint data - ensure userId is always a string
-          const normalizedComplaints = complaintsData.map((complaint: any) => ({
-            ...complaint,
-            id: complaint._id || complaint.id, // Map _id to id
-            userId: typeof complaint.userId === 'object' && complaint.userId 
-              ? complaint.userId._id || complaint.userId.id 
-              : complaint.userId,
-            // Keep populated user data if available for display purposes
-            user: complaint.userId,
-          }));
+          const normalizedComplaints = (complaintsData || []).map((complaint: any) => {
+            if (!complaint) return null;
+            
+            return {
+              ...complaint,
+              id: complaint._id || complaint.id,
+              userId: complaint.userId && typeof complaint.userId === 'object' 
+                ? (complaint.userId._id || complaint.userId.id) 
+                : complaint.userId,
+              user: complaint.userId,
+            };
+          }).filter((c: any) => c !== null);
 
           console.log('Normalized complaints:', normalizedComplaints);
           setComplaints(normalizedComplaints);
