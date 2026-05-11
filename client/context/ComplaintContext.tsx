@@ -86,7 +86,7 @@ export const ComplaintProvider: React.FC<{ children: ReactNode }> = ({ children 
           const data = await response.json();
           console.log('Raw complaints data:', data);
           // Handle different response formats
-          const complaintsData = data.complaints || data;
+          const complaintsData = Array.isArray(data) ? data : (data.complaints || data);
           console.log('Raw complaints data:', complaintsData);
 
           // Normalize complaint data - ensure userId is always a string
