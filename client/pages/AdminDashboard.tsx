@@ -350,15 +350,15 @@ export default function AdminDashboard() {
                 {/* Status Pie Chart */}
                 <div className="bg-card rounded-xl p-6 shadow-lg border border-border">
                   <h3 className="text-lg font-bold text-foreground mb-4">Status Distribution</h3>
-                  <ResponsiveContainer width="100%" height={300}>
+                  <ResponsiveContainer width="100%" height={350}>
                     <PieChart>
                       <Pie
                         data={statusData}
-                        cx="50%"
+                        cx="40%"
                         cy="50%"
-                        labelLine={false}
+                        labelLine={true}
                         label={({ name, value }) => `${name}: ${value}`}
-                        outerRadius={80}
+                        outerRadius={70}
                         fill="#8884d8"
                         dataKey="value"
                       >
@@ -367,6 +367,7 @@ export default function AdminDashboard() {
                         ))}
                       </Pie>
                       <Tooltip />
+                      <Legend verticalAlign="middle" align="right" layout="vertical" />
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
