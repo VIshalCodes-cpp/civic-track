@@ -93,7 +93,9 @@ export const ComplaintProvider: React.FC<{ children: ReactNode }> = ({ children 
           const normalizedComplaints = complaintsData.map((complaint: any) => ({
             ...complaint,
             id: complaint._id || complaint.id, // Map _id to id
-            userId: typeof complaint.userId === 'object' ? complaint.userId._id || complaint.userId.id : complaint.userId,
+            userId: typeof complaint.userId === 'object' && complaint.userId 
+              ? complaint.userId._id || complaint.userId.id 
+              : complaint.userId,
             // Keep populated user data if available for display purposes
             user: complaint.userId,
           }));
