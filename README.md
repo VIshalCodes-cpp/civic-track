@@ -94,5 +94,9 @@ server/                   # Express API backend
 shared/                   # Shared types
 └── api.ts                # API interfaces
 ```
-Live on:
-civic-track-production.up.railway.app
+<p align="center">
+  🚀 <b>Live Demo:</b><br>
+  <a href="https://civic-track-production.up.railway.app" target="_blank">
+    🌐 civic-track-production.up.railway.app
+  </a>
+</p>
